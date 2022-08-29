@@ -1,11 +1,9 @@
-import { Product } from "../App";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
-type Products = {
-  products: Product[];
-  filterProd: string;
-};
-
-const ShowAllProducts = ({ products, filterProd }: Products) => {
+const ShowAllProducts = () => {
+  const products = useSelector((state:RootState) => state.productSlice.products)
+  const filterProd = useSelector((state:RootState) => state.productSlice.filterProd)
   return (
     <div>
       <h2>All Products</h2>
